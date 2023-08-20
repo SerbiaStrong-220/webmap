@@ -74,7 +74,7 @@ map.on('moveend', function (event) {
 const optTmpl = document.getElementById("opt-tmpl")
 for (const [key, value] of Object.entries(maps)) {
   var newbutton = optTmpl.cloneNode(true);
-  optTmpl.after(newbutton);
+  optTmpl.before(newbutton);
   newbutton.querySelector(".option-text").innerText = value.name
   newbutton.dataset.mapid = key
 }

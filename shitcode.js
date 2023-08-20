@@ -28,7 +28,7 @@ function setmap(mapid)
 {
   sBtn_text.innerText = maps[mapid].name;
   mapLayer.setSource(new XYZ({
-    url: "http://localhost:5173/map_data/" + maps[mapid].image,
+    url: "./map_data/" + maps[mapid].image,
     maxZoom: 0,
     interpolate: false,
     wrapX: false

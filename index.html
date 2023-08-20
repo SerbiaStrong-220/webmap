@@ -2,12 +2,39 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/x-icon" href="https://openlayers.org/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Using OpenLayers with Vite</title>
+    <title>SS220 - Space Station 14 Webmap</title>
+
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap" rel="stylesheet">
+    <!-- Boxicons -->
+    <link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
   </head>
   <body>
+    <div class="layer1" id="layer1"></div>
+    <div class="layer2" id="layer2"></div>
+    <div class="layer3" id="layer3"></div>
+
     <div id="map"></div>
-    <script type="module" src="./main.js"></script>
+    <script type="module" src="./shitcode.js"></script>
+
+    <div class="select-menu" id="map-select">
+      <div class="select-btn">
+        <span class="sBtn-text">Map</span>
+        <i class="bx bx-chevron-down"></i>
+      </div>
+
+      <ul class="options">
+        <li class="option" id="opt-tmpl">
+          <i class="bx bxs-map-alt"></i>
+          <span class="option-text">Ошибка</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="copyright-box">Copyright © 2023 SS220 Team</div>
   </body>
 </html>

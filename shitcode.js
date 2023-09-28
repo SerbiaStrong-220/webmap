@@ -7,9 +7,11 @@ import XYZ from 'ol/source/XYZ';
 
 const mapLayer = new TileLayer();
 const maps = {
+  frankenstein: {image: "frankenstein.webp", name: "Frankenstein"},
+  gate: {image: "gate.webp", name: "Gate"},
   delta: {image: "delta.webp", name: "Delta"},
-  box: {image: "box.webp", name: "Box"},
-  frankenstein: {image: "frankenstein.webp", name: "Frankenstein"}
+  fland: {image: "fland.webp", name: "Fland"},
+  bagel: {image: "bagel.webp", name: "Bagel"}
 }
 
 const map = new Map({

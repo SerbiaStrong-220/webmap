@@ -11,7 +11,8 @@ const maps = {
   gate: {image: "gate.webp", name: "Gate"},
   delta: {image: "delta.webp", name: "Delta"},
   fland: {image: "fland.webp", name: "Fland"},
-  bagel: {image: "bagel.webp", name: "Bagel"}
+  bagel: {image: "bagel.webp", name: "Bagel"},
+  nox: {image: "nox.webp", name: "Nox"}
 }
 
 const map = new Map({

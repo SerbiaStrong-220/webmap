@@ -12,7 +12,8 @@ const maps = {
   delta: {image: "delta.webp", name: "Delta"},
   fland: {image: "fland.webp", name: "Fland"},
   bagel: {image: "bagel.webp", name: "Bagel"},
-  nox: {image: "nox.webp", name: "Nox"}
+  nox: {image: "nox.webp", name: "Nox"},
+  avrite: {image: "avrite.webp", name: "Avrite"}
 }
 
 const map = new Map({

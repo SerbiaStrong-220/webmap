@@ -13,7 +13,8 @@ const maps = {
   fland: {image: "fland.webp", name: "Fland"},
   bagel: {image: "bagel.webp", name: "Bagel"},
   nox: {image: "nox.webp", name: "Nox"},
-  avrite: {image: "avrite.webp", name: "Avrite"}
+  avrite: {image: "avrite.webp", name: "Avrite"},
+  marathon: {image: "marathon.webp", name: "Marathon"}
 }
 
 const map = new Map({

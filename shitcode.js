@@ -14,9 +14,10 @@ const maps = {
 //  bagel: {image: "bagel.webp", name: "Bagel"},
   nox: {image: "nox.webp", name: "Nox"},
   axioma: {image: "axioma.webp", name: "Axioma"},
-  avrite: {image: "avrite.webp", name: "Avrite"},
-  marathon: {image: "marathon.webp", name: "Marathon"},
-  hive: {image: "hive.webp", name: "Hive"}
+//  centcomm: {image: "centcomm.webp", name:"CentComm"},
+//  avrite: {image: "avrite.webp", name: "Avrite"},
+//  marathon: {image: "marathon.webp", name: "Marathon"},
+//  hive: {image: "hive.webp", name: "Hive"}
 }
 
 const map = new Map({

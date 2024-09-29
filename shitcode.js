@@ -16,6 +16,7 @@ const maps = {
   axioma: {image: "axioma.webp", name: "Axioma"},
   eclipse: {image: "eclipse.webp", name: "Eclipse"},
   donuts: {image: "donuts.webp", name: "Donuts"},
+  astro: {image: "astro.webp", name: "Astro"},
 //  centcomm: {image: "centcomm.webp", name:"CentComm"},
 //  avrite: {image: "avrite.webp", name: "Avrite"},
 //  marathon: {image: "marathon.webp", name: "Marathon"},

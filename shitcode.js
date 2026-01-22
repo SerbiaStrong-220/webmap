@@ -17,7 +17,8 @@ const maps = {
   eclipse: {image: "eclipse.webp", name: "Eclipse"},
   donuts: {image: "donuts.webp", name: "Donuts"},
   astro: {image: "astro.webp", name: "Astro"},
-  nightshift: {image: "nightshift.webp", name: "Nightshift"}
+  nightshift: {image: "nightshift.webp", name: "Nightshift"},
+  tox: {image: "tox.webp", name: "Tox"}
 //  centcomm: {image: "centcomm.webp", name:"CentComm"},
 //  avrite: {image: "avrite.webp", name: "Avrite"},
 //  marathon: {image: "marathon.webp", name: "Marathon"},

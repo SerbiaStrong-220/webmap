@@ -1,0 +1,99 @@
+# this one action clones game repository, and runs it to generate map images and JSON file containing all stations data
+# after it pushes all the generated data to the generated/{datetime} branch
+# which then will be automatically deployed to the gh-pages
+name: Generate webmap
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    name: Generate webmap data
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout SS220
+        uses: actions/checkout@v4.2.2
+        with:
+          repository: SerbiaStrong-220/space-station-14
+          path: space-station-14
+          ref: master
+
+      - name: Setup Submodule
+        run: |
+          cd space-station-14
+          git submodule update --init --recursive
+
+      - name: Update Engine Submodules
+        run: |
+          cd space-station-14/RobustToolbox/
+          git submodule update --init --recursive
+
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v4.1.0
+        with:
+          dotnet-version: 9.0.x
+
+      - name: Install Dependencies
+        run: |
+          cd space-station-14
+          dotnet restore
+
+      - name: Build Server
+        run: |
+          cd space-station-14
+          dotnet build Content.Server --configuration Release --no-restore /p:WarningsAsErrors=nullable /m
+
+      - name: Generate JSON blobs for prototypes
+        run: |
+          cd space-station-14
+          dotnet ./bin/Content.Server/Content.Server.dll --cvar autogen.generate_webmap_data_run=true --cvar game.map_pool=SS220MapPool
+        continue-on-error: true
+
+      - name: Build Map Renderer
+        run: |
+          cd space-station-14
+          dotnet build Content.MapRenderer --configuration Release --no-restore /p:WarningsAsErrors=nullable /m
+
+      - name: Run Map Renderer
+        run: |
+          cd space-station-14
+          dotnet run --project Content.MapRenderer --no-build Frankenstein Axioma Eclipse Donuts Astro Nightshift Tox
+        continue-on-error: true
+
+      - name: Checkout current repo
+        uses: actions/checkout@v4.2.2
+        with:
+          path: current-repo
+
+      - name: Create timestamped branch name
+        id: vars
+        run: |
+          echo "BRANCH_NAME=generated/$(date +'%Y%m%d_%H%M%S')" >> $GITHUB_ENV
+
+      - name: Create new branch in current repo
+        run: |
+          cd current-repo
+          git checkout -b ${{ env.BRANCH_NAME }}
+
+      - name: Copy generated files into current repo
+        run: |
+          cp space-station-14/bin/Content.Server/data/stations.json current-repo/src/lib/data/stations.json
+          find space-station-14/Resources/MapImages/ -name "*.png" -exec cp -t current-repo/static/ {} +
+
+      - name: Commit and push
+        run: |
+          cd current-repo
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add src/
+          git add static/
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Generate webmap data for ${{ env.BRANCH_NAME }}"
+            git push origin ${{ env.BRANCH_NAME }}
+          fi

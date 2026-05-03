@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Passion+One:wght@400;700;900&display=swap');
+
+@import 'tailwindcss';
+
+:root {
+	--header-font: Passion One, Calibri;
+	--background-panel: rgb(10, 19, 34);
+	--background: rgb(4, 5, 10);
+	--primary: rgb(65, 182, 251);
+	--border-color: #0B9FC0;
+	--secondary: rgb(40, 58, 108);
+	--secondary-dark: rgb(20, 29, 54);
+	--text-primary: rgb(255, 255, 255);
+	--text-primary-2: rgb(206, 226, 255);
+	--h1-size: 26px;
+	--h2-size: 20px;
+}
+
+body {
+	color: var(--text-primary);
+	overflow: auto !important;
+}
+
+.h1 {
+	color: var(--text-primary-2);
+	font-size: var(--h1-size);
+	font-family: var(--header-font);
+}
+
+.panel-primary {
+	background-color: var(--background-panel);
+	border-block: 3px solid var(--primary);
+}
+
+.panel-secondary {
+	background-color: var(--background-panel);
+	border-block: 3px solid var(--secondary);
+}
+
+.no-select {
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+input {
+	background-color: #04050a;
+	border: 1px solid var(--secondary);
+	padding-inline: 10px;
+	padding-block: 3px;
+	outline: none;
+}
+
+select {
+	appearance: none;
+	outline: none;
+	background-color: var(--secondary);
+	padding-inline: 10px;
+	padding-block: 5px;
+}
+
+select:hover {
+	cursor: pointer;
+}
+
+a {
+	transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+	color: var(--text-primary-2);
+}
+
+button {
+	outline: none;
+}
+
+.pixelated {
+	image-rendering: pixelated;
+	image-rendering: -moz-crisp-edges;
+	image-rendering: crisp-edges;
+}

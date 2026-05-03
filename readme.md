@@ -1,18 +1,47 @@
-# OpenLayers + Vite
+# Exodus Webmap
 
-This example demonstrates how the `ol` package can be used with [Vite](https://vitejs.dev/).
+This project contains a webmap for the project ["Exodus: Monolith"](https://github.com/SerbiaStrong-220/Monolith)
 
-To get started, run the following (requires Node 14+):
+Webmap: https://serbiastrong-220.github.io/webmap-exodus/
 
-    npx create-ol-app my-app --template vite
+## Project goals
 
-Then change into your new `my-app` directory and start a development server (available at http://localhost:5173):
+- Keep it simple
+- Keep it fast
+- Keep it lightweight
+- Keep it beautiful
+- Keep it functional
 
-    cd my-app
-    npm start
+Current release build size is ~134 KB (without images), it shouldn't be more than 200 KB.
 
-To generate a build ready for production:
+## License
 
-    npm run build
+Author: Maxim Bychkov (Lokilife)
 
-Then deploy the contents of the `dist` directory to your server.  You can also run `npm run serve` to serve the results of the `dist` directory for preview.
+All rights reserved. If you want to use this project, contact author in Discord.
+
+## Developing
+
+### Prerequisites
+
+- NodeJS v24.12.0 (may work with other versions, untested)
+- pnpm v10.30.0 (may work with other versions, untested)
+
+Once you've installed dependencies with `pnpm install`, start a development server:
+
+```sh
+pnpm run dev
+
+# or start the server and open the app in a new browser tab
+pnpm run dev -- --open
+```
+
+### Building
+
+To create a production version of the app:
+
+```sh
+pnpm run build
+```
+
+You can preview the production build with `pnpm run preview`.
